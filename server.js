@@ -1,8 +1,11 @@
 const express = require("express");
-const axiom = require("axiom");
+const axios = require("axios");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
+app.use(cors());
+
 
 const PORT = 3000;
 
@@ -38,5 +41,5 @@ app.get("/ip/:address", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log('Server running on port ${PORT}');
+    console.log('Server running on port', PORT);
 })

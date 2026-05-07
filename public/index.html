@@ -1,30 +1,92 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>IP Tracker</title>
+
+  <style>
+
+    body {
+      font-family: Arial;
+      padding: 40px;
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+    }
+
+    button {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .card {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid gray;
+      width: 400px;
+      border-radius: 10px;
+    }
+
+  </style>
 </head>
+
 <body>
 
   <h1>IP Address Tracker</h1>
 
-  <input type="text" id="ipInput" placeholder="Enter IP Address">
+  <input
+    type="text"
+    id="ipInput"
+    placeholder="Enter IP Address"
+  >
 
-  <button onclick="findIP()">Search</button>
+  <button onclick="findIP()">
+    Search
+  </button>
 
-  <pre id="result"></pre>
+  <div id="result"></div>
 
   <script>
+
     async function findIP() {
 
+      // Get input value
       const ip = document.getElementById("ipInput").value;
 
-      const response = await fetch(`/ip/${ip}`);
+      // Send request to backend
+      const response = await fetch(`http://localhost:3000/ip/${ip}`);
 
+      // Convert response to JSON
       const data = await response.json();
 
-      document.getElementById("result").textContent =
-        JSON.stringify(data, null, 2);
+      console.log(data);
+
+      // Display data on frontend
+      document.getElementById("result").innerHTML = `
+
+        <div class="card">
+
+          <h2>IP Information</h2>
+
+          <p><strong>IP:</strong> ${data.ip}</p>
+
+          <p><strong>Country:</strong> ${data.country_name}</p>
+
+          <p><strong>Region:</strong> ${data.region_name}</p>
+
+          <p><strong>City:</strong> ${data.city}</p>
+
+          <p><strong>Latitude:</strong> ${data.latitude}</p>
+
+          <p><strong>Longitude:</strong> ${data.longitude}</p>
+
+        </div>
+
+      `;
     }
+
   </script>
 
 </body>
