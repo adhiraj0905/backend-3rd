@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IP Tracker</title>
+</head>
+<body>
+
+  <h1>IP Address Tracker</h1>
+
+  <input type="text" id="ipInput" placeholder="Enter IP Address">
+
+  <button onclick="findIP()">Search</button>
+
+  <pre id="result"></pre>
+
+  <script>
+    async function findIP() {
+
+      const ip = document.getElementById("ipInput").value;
+
+      const response = await fetch(`/ip/${ip}`);
+
+      const data = await response.json();
+
+      document.getElementById("result").textContent =
+        JSON.stringify(data, null, 2);
+    }
+  </script>
+
+</body>
+</html>
