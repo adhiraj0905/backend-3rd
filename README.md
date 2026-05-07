@@ -8,10 +8,6 @@ This project demonstrates how a frontend communicates with a backend server, and
 
 # Project Preview
 
-## Homepage
-
-<!-- ADD SCREENSHOT HERE -->
-
 
 ![Project Screenshot](./images/screenshot.png)
 
