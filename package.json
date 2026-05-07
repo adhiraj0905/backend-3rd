@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/adhiraj0905/backend-3rd#readme",
   "dependencies": {
+    "axiom": "^0.52.0",
     "axios": "^1.16.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1"
