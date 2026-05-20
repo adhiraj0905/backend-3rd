@@ -2,6 +2,8 @@
 
 A small full-stack project that tracks IP address information using the IPStack API.
 
+The purpose of this project is to build a foundation.
+
 This project demonstrates how a frontend communicates with a backend server, and how the backend forwards requests to a public API(using axios) and returns the response back to the frontend.
 
 ---
